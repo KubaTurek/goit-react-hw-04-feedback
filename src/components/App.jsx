@@ -18,11 +18,7 @@ const App = () => {
         <FeedbackOptions />
       </Section>
       <Section tittle="Statistics">
-        {countTotalFeedback() === 0 ? (
-          <NotificationMessage />
-        ) : (
-          <Statistics />
-        )}
+        {countTotalFeedback() === 0 ? <NotificationMessage /> : <Statistics />}
       </Section>
     </div>
   );

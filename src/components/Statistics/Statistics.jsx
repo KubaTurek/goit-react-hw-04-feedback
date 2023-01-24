@@ -2,23 +2,19 @@ import css from './Statistics.module.css';
 import { useStats } from 'context/StatsContext';
 
 const Statistics = () => {
+  const { good, neutral, bad } = useStats();
 
-const {good, neutral, bad} = useStats();
+  const countTotalFeedback = () => {
+    return good + neutral + bad;
+  };
 
-const countTotalFeedback = () => {
-  return good + neutral + bad;
-};
+  const total = countTotalFeedback();
 
-const total = countTotalFeedback();
+  const countPositiveFeedbackPercentage = () => {
+    return ((good / total) * 100).toFixed();
+  };
 
-const countPositiveFeedbackPercentage = () => {
-  
-  return ((good / total) * 100).toFixed();
-};
-
-const positivePercentage = countPositiveFeedbackPercentage() + "%"
-
-
+  const positivePercentage = countPositiveFeedbackPercentage() + '%';
 
   return (
     <ul className={css.list}>
@@ -41,8 +37,5 @@ const positivePercentage = countPositiveFeedbackPercentage() + "%"
     </ul>
   );
 };
-
-
-
 
 export default Statistics;
